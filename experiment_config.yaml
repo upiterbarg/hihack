@@ -40,7 +40,7 @@ high_level_model: null  ### cleaved policy: high level model class
 pt_lstm_hs: False ### use a pretrained LSTM
 pt_lstm_hs_path: null ### load LSTM core + encoder weights from path
 initialisation: orthogonal ### weight initialization
-lstm_hs_grad_on: true ## # keep LSTM (+ encoder) gradients on?
+lstm_hs_grad_on: true ### keep LSTM (+ encoder) gradients on?
 
 
 ### Dataset
@@ -63,13 +63,13 @@ adam_eps: 1.0e-07
 adam_learning_rate: 0.0001
 virtual_batch_size: 128
 
-### Loss coefficients and Grad Clipping
+### Loss coefficients and grad clipping
 supervised_loss: 1
 strategy_loss_coeff: 1
 rl_loss_coeff: 1
 grad_norm_clipping: 4
 
-### BC or BC + RL?
+### Just BC, or BC + RL?
 behavioural_clone: false
 
 ### RL
