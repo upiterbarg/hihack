@@ -1,6 +1,6 @@
 # `hihack`
 
-This repo contains code accompanying the NeurIPS 2023 paper ["NetHack is Hard to Hack"](https://arxiv.org/abs/2305.19240) (Piterbarg, Pinto, Fergus).
+This repo contains the official implementation of all methods and models from the NeurIPS 2023 paper ["NetHack is Hard to Hack"](https://arxiv.org/abs/2305.19240) (Piterbarg, Pinto, Fergus).
 
 
 ## Installation
@@ -88,8 +88,7 @@ A (very) small `HiHack`-style sample dataset consisting of 31, strategy-labeled 
 
 ## Launching Experiments
 
-To launch an experiment, first confirm all paths have been properly set in `experiment_config.yaml`.
-Then, run `experiment.py` via a `moolib` broker,
+To launch an experiment (i.e. train a model from scratch or with warmstarting, via BC or BC + APPO), first confirm all paths have been properly set in `experiment_config.yaml`. Then, run `experiment.py` via a `moolib` broker,
 
 ```
 python -m moolib.broker &
@@ -98,3 +97,5 @@ export BROKER_IP=`hostname -I | cut -d' ' -f1`
 export BROKER_PORT=4431
 python experiment.py connect=$BROKER_IP:$BROKER_PORT
 ```
+
+Experiment code is based on benchmarks introduced in [Hambro et al 2022](https://proceedings.neurips.cc/paper_files/paper/2022/file/9d9258fd703057246cb341e615426e2d-Paper-Datasets_and_Benchmarks.pdf).
