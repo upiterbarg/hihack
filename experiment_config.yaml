@@ -10,7 +10,7 @@ hydra:
 wandb: true
 group: hihack_test
 project: hihack_test
-savedir: /data/projects/hihack/test_hier_trnsfrmr_lstm
+savedir: #### SET ME
 checkpoint_interval: 300
 checkpoint_history_interval: 600
 connect: 10.32.35.215:4431
