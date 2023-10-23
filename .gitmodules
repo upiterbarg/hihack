@@ -1,0 +1,9 @@
+[submodule "dungeonsdata-neurips2022"]
+	path = dungeonsdata-neurips2022
+	url = git@github.com:upiterbarg/dungeonsdata-neurips2022.git
+[submodule "autoascend"]
+	path = autoascend
+	url = git@github.com:upiterbarg/autoascend.git
+[submodule "nle"]
+	path = nle
+	url = git@github.com:upiterbarg/nle.git
