@@ -1,19 +1,22 @@
 # `hihack`
 
-This repository contains code accompanying the NeurIPS 2023 paper ["NetHack is Hard to Hack"](https://arxiv.org/abs/2305.19240) (Piterbarg, Pinto, and Fergus).
+This repo contains code accompanying the NeurIPS 2023 paper ["NetHack is Hard to Hack"](https://arxiv.org/abs/2305.19240) (Piterbarg, Pinto, Fergus).
 
 
 ## Installation
 
 Please make sure to clone this repository recursively before attempting installation.
-`git clone --recursive git@github.com:upiterbarg/hihack.git`
+```
+git clone --recursive git@github.com:upiterbarg/hihack.git
+```
 
 
 To install core dependencies with conda, run,
-`conda env create -f conda_config.yaml`
+```conda env create -f conda_config.yaml```
 
 
 Next, to finish installation of the remaining dependencies on `linux`, run:
+
 ```
 cd nle
 python setup.py install
