@@ -1,0 +1,110 @@
+hydra:
+  job_logging:
+    formatters:
+      simple:
+        format: ${log_fmt}
+  run:
+    dir: "${localdir}"
+
+### General
+wandb: true
+group: hihack_test
+project: hihack_test
+savedir: /data/projects/hihack/test_hier_trnsfrmr_lstm
+checkpoint_interval: 300
+checkpoint_history_interval: 600
+connect: 10.32.35.215:4431
+device: cuda:0
+entity: null
+exp_point: point-A
+exp_set: experiment-set
+localdir: ${savedir}/peers/${local_name}
+local_name: ${uid:}
+log_fmt: '[%(levelname)s:${local_name} %(process)d %(module)s:%(lineno)d %(asctime)s]
+  %(message)s'
+log_interval: 20
+
+### Model
+model: HierarchicalTransformerLSTM
+cdgpt5_xxl_decoder: true 
+num_transformer_layers: 3
+num_attention_heads: 16
+use_prev_action: true
+warmstart_from_path: null ### warmstart a pretrained model
+disable_low_level_policy_gradients: false ### cleaved policy: disable high level grad
+disable_high_level_policy_gradients: false ### cleaved policy: disable high level grad
+path_to_pt_high_level_model: null ### cleaved policy: pt high level path
+path_to_pt_low_level_model: null ### cleaved policy: pt low level path
+low_level_model: null ### cleaved policy: low level model class
+high_level_model: null  ### cleaved policy: high level model class
+pt_lstm_hs: False ### use a pretrained LSTM
+pt_lstm_hs_path: null ### load LSTM core + encoder weights from path
+initialisation: orthogonal ### weight initialization
+lstm_hs_grad_on: true ## # keep LSTM (+ encoder) gradients on?
+
+
+### Dataset
+dataset: hihack
+dataset_path: #### SET ME
+db_filename: hihack.db
+dataset_restrict_to_n_rngs: null
+dataset_restriction_seed: 2
+dataset_warmup: 0
+dataset_reset: 0
+ttyrec_batch_size: 128
+ttyrec_unroll_length: 32
+ttyrec_envpool_size: 1
+ttyrec_cpus: 12
+
+### Optimizer + virtual batching 
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_eps: 1.0e-07
+adam_learning_rate: 0.0001
+virtual_batch_size: 128
+
+### Loss coefficients and Grad Clipping
+supervised_loss: 1
+strategy_loss_coeff: 1
+rl_loss_coeff: 1
+grad_norm_clipping: 4
+
+### BC or BC + RL?
+behavioural_clone: false
+
+### RL
+actor_batch_size: 64
+discounting: 0.999
+entropy_cost: 0.001
+appo_clip_policy: 0.1
+appo_clip_baseline: 1.0
+baseline_cost: 1
+batch_size: 128
+normalize_advantages: true
+normalize_reward: false
+num_actor_batches: 2
+num_actor_cpus: 10
+rms_alpha: 0.99
+rms_epsilon: 1.0e-06
+rms_momentum: 0
+reward_clip: 10
+reward_scale: 1
+state_counter: none
+total_steps: 10000000000
+unroll_length: 32
+inference_unroll_length: 1
+rms_reward_norm: true
+use_global_advantage_norm: false
+
+### Environment
+add_image_observation: true
+env:
+  name: challenge
+  max_episode_steps: 100000
+character: '@'
+crop_dim: 18
+pixel_size: 6
+penalty_step: 0.0
+penalty_time: 0.0
+fn_penalty_step: constant
+
