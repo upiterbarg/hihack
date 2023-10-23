@@ -55,6 +55,9 @@ LAST_TTYREC_DATA = None
 HIERARCHICAL = False
 SUBMODULE_FLAGS = {}
 
+"""
+Based on dungeonsdata-neurips2023/experiment_code/hackrl/experiment.py (Hambro et al 2022).
+"""
 
 
 class TtyrecEnvPool:
