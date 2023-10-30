@@ -77,7 +77,7 @@ By default, ttyrecs will be saved to `data/test`.
 
 ### Full HiHack Dataset
 
-The full HiHack dataset (**`~97GB` zipped, `~99GB` unzipped**) is now available for public download.
+The full HiHack dataset (**`~97GB`, `~99GB` after extraction**) is now available for public download.
 
 ```
 wget horatio.cs.nyu.edu/mit/ulyana/hihack/hihack_dataset.tar.gz && tar -xvzf hihack_dataset.tar.gz -C data/
