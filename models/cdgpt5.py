@@ -42,7 +42,11 @@ class CDGPT5(nn.Module):
         self.screen_encoder = torch.jit.script(ScreenEncoder(screen_shape))
 
         self.prev_actions_dim = 128 if self.use_prev_action else 0
-        self.hidden_dim = 512
+
+        if flags.cdgpt5_xxl_policy:
+            self.hidden_dim = 1024
+        else:
+            self.hidden_dim = 512
 
         self.h_dim = sum(
             [

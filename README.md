@@ -77,7 +77,15 @@ By default, ttyrecs will be saved to `data/test`.
 
 ### Full HiHack Dataset
 
-The full HiHack dataset (`~99GB` zipped) will be made available shortly. Check back here in a few days.
+The full HiHack dataset (**`~97GB` zipped, `~99GB` unzipped**) is now available for public download.
+
+```
+wget horatio.cs.nyu.edu/mit/ulyana/hihack/hihack_dataset.tar.gz && tar -xvzf hihack_dataset.tar.gz -C data/
+```
+
+Please be aware that download and extraction may take several hours, we recommend that these be run overnight.
+
+Populating the `.db` file registering the `hihack` dataset via NLE-native dataloading functionality (lines `193-196` in `experiment.py`) may also take several hours. Please note that this operation only needs to be run once, as long as the location of `hihack` dataset files remain unchanged.
 
 
 ### Sample HiHack Dataset
